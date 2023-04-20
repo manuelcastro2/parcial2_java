@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <title>PRINCIPAL</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../CSS/principal.css">
 </head>
 <body>
 
@@ -82,6 +82,88 @@
             <a href="#">consulta calendario academico</a>
             <a href="#">consultar formato de grado</a>
         </c:if>
+        <c:if test="${resultado.rows[0].cargo =='estudiante'}">
+                                <sql:query var="result" dataSource="${usuarios}">
+                                    select * from general,usuarios
+                                    where cargo="estudiante" and estudiante=?
+                                    <sql:param value="${param.usuario}">
+                                    </sql:param>
+                                </sql:query>
+                                <c:forEach var="itema" items="${result.rows}">
+                                <c:if test="${itema.coordinacion=='aprobado'}">
+                                <a href="veresstudiante.jsp?id=${itema.estudiante}">subir proyecto y ver estado de avance</a>
+                                </c:if>
+                                </c:forEach>
+                                <table border="1">
+                                    <thead> 
+                                    <td>
+                                        pre-proyecto
+                                    </td>
+                                    <td>
+                                        proyecto
+                                    <td colspan="2">
+                                        estudiante
+                                    </td>
+                                    <td colspan="2">
+                                        director
+                                    </td>
+                                    <td>estado coordinacion</td>
+                                    <td>estado director</td>
+                                    <td>estado evaluador</td>
+                                    </thead>
+                                    <c:forEach var="itema" items="${result.rows}">
+                                        <tr>
+                                            <td>
+                                                <c:out value="${itema.pre_proyecto}" />
+                                            </td>
+                                            <td>
+                                            <c:if test="${itema.estado_coordinador=='revision'}">
+                                               <c:out value="${'aun no se puede subir proyecto'}" />
+                                                </c:if>
+                                            <c:if test="${itema.estado_coordinador=='aprobado' &&itema.proyecto==''}">
+                                            <c:out value="${'ya se puede subir'}" />
+                                            </c:if>
+                                            <c:if test="${itema.estado_coordinador=='aprobado' &&itema.proyecto!=''}">
+                                            <c:out value="${itema.proyecto}" />
+                                            </c:if>
+                                            </td>
+                                            <td>
+                                                <c:out value="${itema.estudiante}" />
+                                            </td>
+                                            <td>
+                                                <c:out value="${itema.nombre} ${itema.apellido}" />
+                                            </td>
+                                            <td>
+                                                <c:out value="${itema.agregar_director}" />
+                                                <sql:query var="result2" dataSource="${usuarios}">
+                                            select * from usuarios
+                                            where  cedula='${itema.agregar_director}'
+                                             </sql:query>
+                                            </td>
+                                            </c:forEach>
+                                            <c:forEach var="itema2" items="${result2.rows}">
+                                            <td>
+                                                <c:out value="${itema2.nombre} ${itema2.apellido}" />
+                                            </td>
+                                            </c:forEach>
+                                            <c:forEach var="itema" items="${result.rows}">
+                                            <td>
+                                                <c:out value="${itema.estado_coordinador}" />
+                                            </td>
+                                            <td>
+                                                <c:out value="${itema.estado_director}" />
+                                            </td>
+                                            <td>
+                                                <c:out value="${itema.estado_evaluador}" />
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </table>
+                            
+           <a href="#">consulta calendario academico</a>
+            <a href="#">consultar formato de grado</a>
+            <a href="../index.html">cerrar sesion</a>
+        </c:if>
             
         </c:if>
         <c:if test="${resultado.rowCount eq 0}">
@@ -89,5 +171,6 @@
             <a href="../index.html">Regresar</a>
         </c:if>
          </c:if>
+           
 </body>
 </html>

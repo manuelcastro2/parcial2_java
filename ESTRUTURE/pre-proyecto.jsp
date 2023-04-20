@@ -40,7 +40,7 @@ select * from usuarios
         </c:forEach>
     </select>
 <select name="est_coordinador" id="est_coordinador">
-        <option value="">No Asignar</option>
+        <option value="revision">No Asignar</option>
         <option value="aprobado">aprobado</option>
         <option value="no aprobado">no aprobado</option>
     </select>
@@ -50,8 +50,8 @@ select * from usuarios
 </c:if>
 <c:if test="${param.pre!=null}">
                     <sql:update var="result" dataSource="${usuarios}">
-insert into general (pre_proyecto,proyecto,estudiante,agregar_director,estado_coordinador,estado_director,estado_alumno,estado_evaluador,calificacion)
-                    values('${param.pre}','','${param.estudiante}','${param.director}','${est_coordinador}','','','','')
+insert into general (pre_proyecto,proyecto,estudiante,agregar_director,estado_coordinador,estado_director,estado_evaluador,calificacion)
+                    values('${param.pre}','','${param.estudiante}','${param.director}','${param.est_coordinador}','','','')
                     </sql:update>  
                 <c:if test="${result == 1}">
                     <h1 class="caja-titulo2">PRE-PROYECTO AGREGADO CORRECTAMENTE</h1>

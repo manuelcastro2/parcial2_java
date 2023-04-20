@@ -31,7 +31,6 @@
                                 </sql:query>
                                 <table border="1">
                                     <thead>
-                                    <td>estado alumno</td>
                                     <td>
                                         pre-proyecto
                                     </td>
@@ -49,9 +48,6 @@
                                     </thead>
                                     <c:forEach var="itema" items="${result.rows}">
                                         <tr>
-                                        <td>
-                                                <c:out value="${itema.estado_alumno}" />
-                                            </td>
                                             <td>
                                                 <c:out value="${itema.pre_proyecto}" />
                                             </td>
@@ -87,6 +83,27 @@
                                             <td>
                                                 <c:out value="${itema.estado_evaluador}" />
                                             </td>
+                                             <c:if test="${itema.estado_coordinador=='revision'}">
+                                             <td>
+                                                <form method="post">
+                                                <select name="est_coordinador" id="est_coordinador">
+                                         <option value="aprobado">aprobado</option>
+                                         <option value="no aprobado">no aprobado</option>
+                                            </select>
+                                            <input type="hidden" name="modificar" id="modificar" value="si">
+                                            <button type="submit">cambiar</button>
+                                                </form>
+                                                <c:if test="${param.modificar!=null}">
+                                                <sql:update var="result" dataSource="${usuarios}">
+                         update general set estado_coordinador="${param.est_coordinador}"
+                        where estudiante='${itema.estudiante}'
+                    </sql:update>
+                    </c:if>
+                    <c:if test="${param.modificar==null}">
+                    <h1>aaaaaaaaaaaaaaaaaaaaaaa</h1>
+                    </c:if>
+                                            </td>
+                                             </c:if>
                                         </tr>
                                     </c:forEach>
                                 </table>
