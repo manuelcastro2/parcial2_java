@@ -77,14 +77,10 @@
         </div>
     </div>
             </c:if>
-
         <c:if test="${resultado.rows[0].cargo =='coordinador'}">
-            <form action="idea_anteproyecto.jsp" method="post">
-                
-            </form>
-
-
-        
+            <a href="ver_proyectos.jsp">ver proyectos</a>
+            <a href="#">consulta calendario academico</a>
+            <a href="#">consultar formato de grado</a>
         </c:if>
             
         </c:if>
