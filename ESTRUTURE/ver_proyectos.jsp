@@ -20,34 +20,38 @@
                             <form method="post">
                                 <input type="text" id="cedula" name="cedula">
                                 <label for="cedula">cedula</label>
-                                <input type="hidden" id="validacion" value="si">
                                 <button type="submit">BUSCAR</button>
                             </form>
-                            <c:if test="validacion!=null">
-                                <sql:query var="result" scope="request" dataSource="${usuarios}">
-                                    select * from estudiante,estado,usuarios 
-                                    where estado.estudiante=estudiante.estudiante_usuario 
-                                    and estudiante.estudiante_usuario=usuario.cedula
-                                    and estudiante_usuario=?
-                                </sql:query value="${param.cedula}">
-                                <table>
-                                    <th>
+                            <c:if test="${param.cedula!=null}">
+                                <sql:query var="result" dataSource="${usuarios}">
+                                    select * from general,usuarios
+                                    where cargo="estudiante" and estudiante=?
+                                    <sql:param value="${param.cedula}">
+                                    </sql:param>
+                                </sql:query>
+                                <table border="1">
+                                    <thead>
+                                    <td>estado alumno</td>
                                     <td>
                                         pre-proyecto
                                     </td>
                                     <td>
                                         proyecto
-                                    </td>
                                     <td colspan="2">
                                         estudiante
                                     </td>
-                                    <td>
-                                        aprobado
+                                    <td colspan="2">
+                                        director
                                     </td>
-                                    <td colspan="3">estado</td>
-                                    </th>
+                                    <td>estado coordinacion</td>
+                                    <td>estado director</td>
+                                    <td>estado evaluador</td>
+                                    </thead>
                                     <c:forEach var="itema" items="${result.rows}">
                                         <tr>
+                                        <td>
+                                                <c:out value="${itema.estado_alumno}" />
+                                            </td>
                                             <td>
                                                 <c:out value="${itema.pre_proyecto}" />
                                             </td>
@@ -55,22 +59,40 @@
                                                 <c:out value="${itema.proyecto}" />
                                             </td>
                                             <td>
-                                                <c:out value="${itema.estudiante_usuario}" />
+                                                <c:out value="${itema.estudiante}" />
                                             </td>
                                             <td>
-                                                <c:out value="${itema.nombre}" />
+                                                <c:out value="${itema.nombre} ${itema.apellido}" />
                                             </td>
                                             <td>
-                                               <c:if test="${itema.estudiante_usuario}">
-                                                <c:out value="${itema.aprobado}" />
-                                               </c:if>
+                                                <c:out value="${itema.agregar_director}" />
+                                                <sql:query var="result2" dataSource="${usuarios}">
+                                            select * from usuarios
+                                            where  cedula='${itema.agregar_director}'
+                                             </sql:query>
                                             </td>
-
+                                            </c:forEach>
+                                            <c:forEach var="itema2" items="${result2.rows}">
+                                            <td>
+                                                <c:out value="${itema2.nombre} ${itema2.apellido}" />
+                                            </td>
+                                            </c:forEach>
+                                            <c:forEach var="itema" items="${result.rows}">
+                                            <td>
+                                                <c:out value="${itema.estado_coordinador}" />
+                                            </td>
+                                            <td>
+                                                <c:out value="${itema.estado_director}" />
+                                            </td>
+                                            <td>
+                                                <c:out value="${itema.estado_evaluador}" />
+                                            </td>
                                         </tr>
                                     </c:forEach>
                                 </table>
                             </c:if>
                         </div>
+                        <a href="../index.html">CERRAR CESION</a>
                     </body>
 
                     </html>
