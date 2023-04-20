@@ -2,7 +2,7 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <sql:setDataSource var="usuarios"
-                   url="jdbc:mysql://localhost/parcial2_manuel"
+                   url="jdbc:mysql://localhost/parcial2_manuelcastro"
                    driver="com.mysql.jdbc.Driver"
                    user="root"
                    password=""
