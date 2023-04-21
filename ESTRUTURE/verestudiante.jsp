@@ -15,15 +15,19 @@
 </head>
 <body id="body">
  <form method="post">
- <c:if test="${param.pro==null}">
+            <c:if test="${param.pro==null}">
             <sql:query var="taller" dataSource="${usuarios}"> 
-                        select * from usuarios where cedula=?
+                        select * from usuarios,general where cedula=?
                     <sql:param value="${param.id}">
+                    </sql:param>
+                    </sql:query>
                     <c:forEach var="itema" items="${taller.rows}">
+                    <c:if test="${itema.proyecto==null}">
                     <h1>SUBIENDO PROYECTO DEL ESTUDIANTE <c:out value="${itema.nombre}" /></h1>
-                    </c:forEach>
                     <input type="text" id="pro" name="pro" placeholder="digite el proyecto">
                     <button type="submit">Enviar</button>
+                    </c:if>
+                    </c:forEach>
                 </form>
                 </c:if>
 <c:if test="${param.pro!=null}">
@@ -31,22 +35,22 @@
                     update general set proyecto='${param.pro}' where estudiante="${param.id}"
                 </sql:update>
 
-<h1 class="caja-titulo2">Proyecto subido correctamente</h1>
-                    <sql:query var="taller" dataSource="${usuarios}"> 
+                <h1 class="caja-titulo2">Proyecto subido correctamente</h1>
+                </c:if>
+                 <sql:query var="taller" dataSource="${usuarios}"> 
                     select * from usuarios where cedula="${param.id}"
                     </sql:query>
                      <form method="post" action="principal.jsp">
                         <c:forEach var="itema" items="${taller.rows}">
-                             <input type="text" id="usuario" name="usuario" value="${itema.cedula}" hidden>
-                             <input type="text" id="contrasena" name="contrasena" value="${itema.password}" hidden>
-                             <input type="text" id="cargo" name="cargo" value="${itema.cargo}" hidden>
+                             <input type="hidden" id="usuario" name="usuario" value="${itema.cedula}" >
+                             <input type="hidden" id="contrasena" name="contrasena" value="${itema.password}" >
+                             <input type="hidden" id="cargo" name="cargo" value="${itema.cargo}" >
                         </c:forEach>
                          <br>
                         <button type="submit">
                              <span>REGRESAR</span> 
                          </button>
-    </form>
-                </c:if>
+                    </form>
     
 </body>
 </html>

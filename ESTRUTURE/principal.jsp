@@ -90,8 +90,8 @@
                                     </sql:param>
                                 </sql:query>
                                 <c:forEach var="itema" items="${result.rows}">
-                                <c:if test="${itema.coordinacion=='aprobado'}">
-                                <a href="veresstudiante.jsp?id=${itema.estudiante}">subir proyecto y ver estado de avance</a>
+                                <c:if test="${itema.estado_coordinador=='aprobado'}">
+                                <a href="verestudiante.jsp?id=${itema.estudiante}">subir proyecto y ver estado de avance</a>
                                 </c:if>
                                 </c:forEach>
                                 <table border="1">
@@ -151,10 +151,20 @@
                                                 <c:out value="${itema.estado_coordinador}" />
                                             </td>
                                             <td>
+                                            <c:if test="${itema.estado_coordinador=='aprobado' && itema.estado_director!=''}">
                                                 <c:out value="${itema.estado_director}" />
+                                                 </c:if>
+                                                 <c:if test="${itema.estado_coordinador=='aprobado' && itema.estado_director==''}">
+                                                <c:out value="${'No revisado'}" />
+                                                 </c:if>
                                             </td>
                                             <td>
+                                                <c:if test="${itema.estado_coordinador=='aprobado' && itema.estado_director!=''}">
                                                 <c:out value="${itema.estado_evaluador}" />
+                                                 </c:if>
+                                                 <c:if test="${itema.estado_coordinador=='aprobado' && itema.estado_director==''}">
+                                                <c:out value="${'No revisado'}" />
+                                                 </c:if>
                                             </td>
                                         </tr>
                                     </c:forEach>

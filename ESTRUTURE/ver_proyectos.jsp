@@ -85,23 +85,16 @@
                                             </td>
                                              <c:if test="${itema.estado_coordinador=='revision'}">
                                              <td>
+                                                <c:if test="${param.modificar==null}">
                                                 <form method="post">
                                                 <select name="est_coordinador" id="est_coordinador">
                                          <option value="aprobado">aprobado</option>
                                          <option value="no aprobado">no aprobado</option>
                                             </select>
-                                            <input type="hidden" name="modificar" id="modificar" value="si">
+                                            <input type="hidden" name="modificar" id="modificar" value="${itema.estudiante}">
                                             <button type="submit">cambiar</button>
                                                 </form>
-                                                <c:if test="${param.modificar!=null}">
-                                                <sql:update var="result" dataSource="${usuarios}">
-                         update general set estado_coordinador="${param.est_coordinador}"
-                        where estudiante='${itema.estudiante}'
-                    </sql:update>
-                    </c:if>
-                    <c:if test="${param.modificar==null}">
-                    <h1>aaaaaaaaaaaaaaaaaaaaaaa</h1>
-                    </c:if>
+                                                </c:if>
                                             </td>
                                              </c:if>
                                         </tr>
@@ -109,6 +102,12 @@
                                 </table>
                             </c:if>
                         </div>
+                         <c:if test="${param.modificar!=null}">
+                        <sql:update var="result" dataSource="${usuarios}">
+                         update general set estado_coordinador="${param.est_coordinador}"
+                        where estudiante='${param.modificar}'
+                    </sql:update>
+                    </c:if>
                         <a href="../index.html">CERRAR CESION</a>
                     </body>
 
