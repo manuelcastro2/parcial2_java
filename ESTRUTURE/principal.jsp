@@ -233,7 +233,7 @@
                             <td>
                                 <sql:query var="result" dataSource="${usuarios}">
                                  select * from usuarios
-                                 where cargo="estudiante" and estudiante='${itema.estudiante}'
+                                 where cargo="estudiante" and cedula='${itema.estudiante}'
                                 </sql:query>
                                 <c:forEach var="itema6" items="${result.rows}">
                                 <c:out value= "${itema6.nombre} ${itema6.apellido}" />
