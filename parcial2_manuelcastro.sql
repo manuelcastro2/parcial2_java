@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-04-2023 a las 20:13:58
+-- Tiempo de generación: 21-04-2023 a las 04:27:25
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -34,7 +34,6 @@ CREATE TABLE `general` (
   `agregar_director` varchar(200) DEFAULT NULL,
   `estado_coordinador` varchar(200) DEFAULT NULL,
   `estado_director` varchar(200) DEFAULT NULL,
-  `estado_alumno` varchar(200) DEFAULT NULL,
   `estado_evaluador` varchar(200) DEFAULT NULL,
   `calificacion` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -43,8 +42,8 @@ CREATE TABLE `general` (
 -- Volcado de datos para la tabla `general`
 --
 
-INSERT INTO `general` (`pre_proyecto`, `proyecto`, `estudiante`, `agregar_director`, `estado_coordinador`, `estado_director`, `estado_alumno`, `estado_evaluador`, `calificacion`) VALUES
-('encriptacion', '', '1234567890', '22233344', '', '', '', '', '');
+INSERT INTO `general` (`pre_proyecto`, `proyecto`, `estudiante`, `agregar_director`, `estado_coordinador`, `estado_director`, `estado_evaluador`, `calificacion`) VALUES
+('encriptacion', 'encriptacion movil funcional', '1234567890', '22233344', 'aprobado', '', '', '');
 
 -- --------------------------------------------------------
 
