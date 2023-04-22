@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-04-2023 a las 04:27:25
+-- Tiempo de generación: 22-04-2023 a las 07:54:20
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -43,7 +43,8 @@ CREATE TABLE `general` (
 --
 
 INSERT INTO `general` (`pre_proyecto`, `proyecto`, `estudiante`, `agregar_director`, `estado_coordinador`, `estado_director`, `estado_evaluador`, `calificacion`) VALUES
-('encriptacion', 'encriptacion movil funcional', '1234567890', '22233344', 'aprobado', '', '', '');
+('encriptacion', 'encriptacion movil funcional', '1234567890', '22233344', 'aprobado', 'aprobado', '', ''),
+('video', '', '122869766', '22233344', 'aprobado', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -66,8 +67,9 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`cedula`, `nombre`, `apellido`, `cargo`, `password`) VALUES
 ('1005259101', 'manuel ricardo', 'castro malaver', 'administrador', '123'),
 ('1111222233', 'abigail', 'asds', 'coordinador', '123'),
-('22233344', 'rafael', 'sanchez', 'director', '123'),
+('122869766', 'fabio', 'garzon', 'estudiante', '234'),
 ('1234567890', 'diego ', 'rodirguez', 'estudiante', '123'),
+('22233344', 'rafael', 'sanchez', 'director', '123'),
 ('3333444455', 'michell ', 'sierra', 'evaluador', '123');
 
 --
@@ -86,7 +88,7 @@ ALTER TABLE `general`
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`cargo`),
+  ADD PRIMARY KEY (`cedula`),
   ADD UNIQUE KEY `cedula` (`cedula`);
 COMMIT;
 
