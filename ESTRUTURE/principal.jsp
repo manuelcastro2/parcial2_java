@@ -107,8 +107,10 @@
                 </sql:query>
                 <c:forEach var="itema" items="${result.rows}">
                     <c:if test="${itema.cedula==itema.estudiante}">
-                        <c:if test="${itema.estado_coordinador=='aprobado'&&itema.proyecto==''}">
+                    <c:if test="${itema.estado_coordinador=='aprobado'}">
+                        <c:if test="${itema.proyecto==''||itema.estado_director=='desaprobado'}">
                             <a href="verestudiante.jsp?id=${itema.estudiante}">subir proyecto</a>
+                        </c:if>
                         </c:if>
                     </c:if>
                 </c:forEach>
