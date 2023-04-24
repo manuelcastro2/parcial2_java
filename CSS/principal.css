@@ -5,9 +5,3 @@ padding: 0;
 body{
 height: 100vh;
 }
-#subir2{
-    width: 50%;
-    height: 50%;
-    position: absolute;
-    background: rgb(0, 0, 0);
-}
