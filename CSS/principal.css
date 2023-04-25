@@ -314,23 +314,85 @@ th {
 }
 
 .caja3 {
-    width: 90%;
-    height: 80%;
+    min-width: 90%;
+    min-height: 80%;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
     background-color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+    gap: 10px;
 }
 
 .estu {
-    width: 40%;
-    height: 80%;
+    border-radius: 15px;
+    text-transform: uppercase;
+    width: 35%;
+    height: 90%;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
+
+.estu h1{
+    font-size: 40px;
+}
+
+
+.estu span{
+font-weight: 600;
+}
+
+.estu p{
+    text-align: center;
+font-weight: 100;
+}
+
+.cambiar{
+    text-decoration: none;
+    color:  rgb(255, 200, 0);
+    transition: all .4s ease-in-out;
+}
+
+.cambiar:hover{
+    color:  rgb(124, 97, 0);
+    text-decoration: underline;
+}
+
+.button8 {
+    position: relative;
+    left: 0px;
+    transition: all 0.5s;
+    text-decoration: none;
+    margin-bottom: 5px;
+    font-size: 13px;
+    padding: 1ch 10ch;
+    background-color: rgb(255, 200, 0);
+    color: #ffffff;
+    font-family: Roboto, sans-serif;
+    text-decoration: none;
+    border: none;
+    font-weight: 700;
+    border-radius: 2px;
+    box-shadow: 2px 2px 0px hsl(48, 99%, 47%),
+        4px 4px 0px hsl(48, 98%, 42%),
+        6px 6px 0px hsl(48, 99%, 38%),
+        8px 8px 0px hsl(48, 97%, 31%),
+        10px 10px 0px hsl(48, 98%, 26%),
+        12px 12px 0px hsl(48, 98%, 21%),
+        14px 14px 0px hsl(48, 97%, 15%),
+        16px 16px 0px hsl(48, 96%, 9%),
+        18px 18px 0px hsl(48, 100%, 6%);
+}
+
+.button8:hover {
+    background-color: hsl(0, 0%, 0%);
+    color: #ffffff;
+    transform: scale(1.05);
+    box-shadow: 13px 13px 100px #969696,
+        -13px -13px 100px #ffffff;
+}
+

@@ -189,3 +189,21 @@ span{
     box-shadow: 13px 13px 100px #969696,
         -13px -13px 100px #ffffff;
 }
+
+select {
+    color: rgb(70, 70, 70);
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    padding: 0.5em 2em;
+    background-color: #ccc;
+    box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.3);
+    transition: 300ms ease-in-out;
+}
+
+select:focus {
+    background-color: white;
+    transform: scale(1.01);
+    box-shadow: 13px 13px 100px #969696,
+        -13px -13px 100px #ffffff;
+}
