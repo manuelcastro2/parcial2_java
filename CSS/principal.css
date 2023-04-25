@@ -15,7 +15,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(rgb(118, 255, 241), rgb(94, 170, 252));
 }
 
 .caja-error {
@@ -72,11 +71,22 @@ body {
 }
 
 .caja-intermedia {
+    width: 95%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.caja {
     width: 90%;
     height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
 }
 
 .caja-titulo {
@@ -93,6 +103,7 @@ body {
 .bienvenido {
     text-transform: capitalize;
     position: relative;
+    top: -20px;
     width: 100%;
 }
 
@@ -253,4 +264,73 @@ th {
     transform: scale(1.05);
     box-shadow: 13px 13px 100px #969696,
         -13px -13px 100px #ffffff;
+}
+
+.button5 {
+    position: relative;
+    left: 0px;
+    transition: all 0.5s;
+    text-decoration: none;
+    font-size: 17px;
+    padding: 2ch 20ch;
+    background-color: rgb(0, 255, 0);
+    color: #ffffff;
+    font-family: Roboto, sans-serif;
+    text-decoration: none;
+    border: none;
+    font-weight: 700;
+    border-radius: 2px;
+    box-shadow: 2px 2px 0px hsl(118, 99%, 47%),
+        4px 4px 0px hsl(118, 98%, 42%),
+        6px 6px 0px hsl(118, 99%, 38%),
+        8px 8px 0px hsl(118, 97%, 31%),
+        10px 10px 0px hsl(118, 98%, 26%),
+        12px 12px 0px hsl(118, 98%, 21%),
+        14px 14px 0px hsl(118, 97%, 15%),
+        16px 16px 0px hsl(118, 96%, 9%),
+        18px 18px 0px hsl(118, 100%, 6%);
+}
+
+.button5:hover {
+    background-color: hsl(0, 0%, 0%);
+    color: #ffffff;
+    transform: scale(1.05);
+    box-shadow: 13px 13px 100px #969696,
+        -13px -13px 100px #ffffff;
+}
+
+
+.caja2 {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+    gap: 30px;
+}
+
+.caja3 {
+    width: 90%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+}
+
+.estu {
+    width: 40%;
+    height: 80%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

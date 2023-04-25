@@ -10,71 +10,77 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/actualizarProfesor.css">
-    <title>SUBIENDO</title>
+    <link rel="stylesheet" href="../CSS/agregar_proyecto.css">
+    <title>SUBIENDO PRE-PROYECTO</title>
 </head>
 
 <body>
-    <h1>SISTEMA UNIVERSITARIO</h1>
-    <h2>SUBIENDO PRE-PROYECTO</h2>
-    <sql:query var="result" dataSource="${usuarios}">
-        select * from usuarios
-    </sql:query>
-    <c:if test="${param.pre==null}">
-        <form method="post">
-            <label for="pre">pre-proyecto</label>
-            <input type="text" id="pre" name="pre">
-            <label for="estudiante">estudiante</label>
-            <select name="estudiante" id="estudiante">
-                <c:forEach var="itema" items="${result.rows}">
-                    <c:if test="${itema.cargo=='estudiante'}">
-                        <option value="${itema.cedula}">
-                            <c:out value="${itema.cedula}" /> -
-                            <c:out value="${itema.nombre}" />
-                            <c:out value="${itema.apellido}" />
-                        </option>
-                    </c:if>
-                </c:forEach>
-            </select>
-            <label for="director">Director</label>
-            <select name="director" id="director">
-                <c:forEach var="itema" items="${result.rows}">
-                    <c:if test="${itema.cargo=='director'}">
-                        <option value="${itema.cedula}">
-                            <c:out value="${itema.cedula}" /> -
-                            <c:out value="${itema.nombre}" />
-                            <c:out value="${itema.apellido}" />
-                        </option>
-                    </c:if>
-                </c:forEach>
-            </select>
-            <select name="est_coordinador" id="est_coordinador">
-                <option value="revision">No Asignar</option>
-                <option value="aprobado">aprobado</option>
-                <option value="no aprobado">no aprobado</option>
-            </select>
+    <div class="caja-todo">
+        <div class="caja-intermedia">
+            <sql:query var="result" dataSource="${usuarios}">
+                select * from usuarios
+            </sql:query>
+            <c:if test="${param.pre==null}">
+            <h1>SUBIENDO PRE-PROYECTO</h1>
+                <form method="post">
+                    <div class="caja-contenido">
+                        <input type="text" id="pre" name="pre" placeholder="pre proyecto">
+                    <select name="estudiante" id="estudiante">
+                        <option value="">estudiante</option>
+                        <c:forEach var="itema" items="${result.rows}">
+                            <c:if test="${itema.cargo=='estudiante'}">
 
-            <button type="submit">Subir</button>
-        </form>
-    </c:if>
-    <c:if test="${param.pre!=null}">
-        <sql:update var="result" dataSource="${usuarios}">
-            insert into general
-            (pre_proyecto,proyecto,estudiante,agregar_director,estado_coordinador,estado_director,estado_evaluador,calificacion)
-            values('${param.pre}','','${param.estudiante}','${param.director}','${param.est_coordinador}','','','')
-        </sql:update>
-        <c:if test="${result == 1}">
-            <h1 class="caja-titulo2">PRE-PROYECTO AGREGADO CORRECTAMENTE</h1>
+                                <option value="${itema.cedula}">
+                                    <c:out value="${itema.cedula}" /> -
+                                    <c:out value="${itema.nombre}" />
+                                    <c:out value="${itema.apellido}" />
+                                </option>
+                            </c:if>
+                        </c:forEach>
+                    </select>
+                    <select name="director" id="director">
+                        <option>director</option>
+                        <c:forEach var="itema" items="${result.rows}">
+                            <c:if test="${itema.cargo=='director'}">
+                                <option value="${itema.cedula}">
+                                    <c:out value="${itema.cedula}" /> -
+                                    <c:out value="${itema.nombre}" />
+                                    <c:out value="${itema.apellido}" />
+                                </option>
+                            </c:if>
+                        </c:forEach>
+                    </select>
+                    <select name="est_coordinador" id="est_coordinador">
+                        <option value="revision">Revision</option>
+                        <option value="aprobado">Aprobado</option>
+                        <option value="no aprobado">Desaprobado</option>
+                    </select>
 
-            <form method="post" action="ver_proyectos.jsp">
-                <button type="submit">
-                    <span>REGRESAR</span>
-                </button>
-            </form>
-            <a href="pre-proyecto.jsp">INGREDAR OTRO PRE-PROYECTO</a>
-        </c:if>
-    </c:if>
-
+                    <button type="submit">Subir</button>
+                    </div>
+                </form>
+            </c:if>
+            <c:if test="${param.pre!=null}">
+                <sql:update var="result" dataSource="${usuarios}">
+                    insert into general
+                    (pre_proyecto,proyecto,estudiante,agregar_director,estado_coordinador,estado_director,estado_evaluador,calificacion)
+                    values('${param.pre}','','${param.estudiante}','${param.director}','${param.est_coordinador}','','','')
+                </sql:update>
+                <c:if test="${result == 1}">
+                   <div class="resultado">
+                         <h1 class="caja-titulo2">PRE-PROYECTO AGREGADO CORRECTAMENTE</h1>
+                    <form method="post" action="ver_proyectos.jsp">
+                        <button type="submit">
+                            <span>REGRESAR</span>
+                        </button>
+                    </form>
+                    <br>
+                    <a href="pre-proyecto.jsp">INGREDAR OTRO PRE-PROYECTO</a>
+                   </div>
+                </c:if>
+            </c:if>
+        </div>
+    </div>
 </body>
 
 </html>

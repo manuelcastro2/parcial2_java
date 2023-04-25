@@ -35,66 +35,61 @@
                         <sql:query var="result" scope="request" dataSource="${usuarios}">
                             select * from usuarios
                         </sql:query>
-
-                        <div class="caja-todo">
-                            <div class="caja-intermedia">
-                                <div class="caja-titulo">
-                                    <h1>DATOS USUARIOS</h1>
-                                </div>
-                                <div class="caja-delantera">
-                                    <a href="registro.jsp" data-text="Awesome" class="button2">
-                                        <span class="actual-text">AGREGAR USUARIO</span>
-                                    </a>
-                                    <div>
-                                        <table class="item tres">
-                                            <thead>
-                                                <tr>
-                                                    <th> cedula</th>
-                                                    <th>nombre</th>
-                                                    <th>apellido</th>
-                                                    <th>cargo</th>
-                                                    <th>password</th>
-                                                    <th colspan="2">acciones</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <c:forEach var="fila" items="${result.rows}">
-                                                    <tr>
-                                                        <td>
-                                                            <c:out value="${fila.cedula}" />
-                                                        </td>
-                                                        <td>
-                                                            <c:out value="${fila.nombre}" />
-                                                        </td>
-                                                        <td>
-                                                            <c:out value="${fila.apellido}" />
-                                                        </td>
-                                                        <td>
-                                                            <c:out value="${fila.cargo}" />
-                                                        </td>
-                                                        <td>
-                                                            <c:out value="${fila.password}" />
-                                                        </td>
-                                                        <td><a class="button3"
-                                                                href="eliminar.jsp?id=${fila.cedula}">Eliminar</a></td>
-                                                        <td><a class="button3"
-                                                                href="actualizar.jsp?id=${fila.cedula}">Editar</a></td>
-                                                </c:forEach>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <a class="button4" href="../index.html">cerrar</a>
-                                    </div>
-                                </div>
+                        <div class="caja">
+                            <div class="caja-titulo">
+                                <h1>DATOS USUARIOS</h1>
                             </div>
+                            <a href="registro.jsp" data-text="Awesome" class="button2">
+                                <span class="actual-text">AGREGAR USUARIO</span>
+                            </a>
+                            <table class="item tres">
+                                <thead>
+                                    <tr>
+                                        <th> cedula</th>
+                                        <th>nombre</th>
+                                        <th>apellido</th>
+                                        <th>cargo</th>
+                                        <th>password</th>
+                                        <th colspan="2">acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach var="fila" items="${result.rows}">
+                                        <tr>
+                                            <td>
+                                                <c:out value="${fila.cedula}" />
+                                            </td>
+                                            <td>
+                                                <c:out value="${fila.nombre}" />
+                                            </td>
+                                            <td>
+                                                <c:out value="${fila.apellido}" />
+                                            </td>
+                                            <td>
+                                                <c:out value="${fila.cargo}" />
+                                            </td>
+                                            <td>
+                                                <c:out value="${fila.password}" />
+                                            </td>
+                                            <td><a class="button3" href="eliminar.jsp?id=${fila.cedula}">Eliminar</a>
+                                            </td>
+                                            <td><a class="button3" href="actualizar.jsp?id=${fila.cedula}">Editar</a>
+                                            </td>
+                                    </c:forEach>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <a class="button4" href="../index.html">cerrar</a>
                         </div>
                     </c:if>
 
                     <c:if test="${resultado.rows[0].cargo =='coordinador'}">
-                        <a href="ver_proyectos.jsp">ver proyectos</a>
-                        <a href="#">consulta calendario academico</a>
-                        <a href="#">consultar formato de grado</a>
-                        <a href="../index.html">cerrar</a>
+                        <div class="caja2">
+                            <a class="button5" href="ver_proyectos.jsp">ver proyectos</a>
+                            <a class="button5" href="#">consulta calendario academico</a>
+                            <a class="button5" href="#">consultar formato de grado</a>
+                            <a class="button5" href="../index.html">cerrar</a>
+                        </div>
                     </c:if>
 
                     <c:if test="${resultado.rows[0].cargo =='estudiante'}">
@@ -203,7 +198,7 @@
                     </c:if>
 
                     <c:if test="${resultado.rows[0].cargo =='director'}">
-                        <div>
+                        <div class="caja3">
                             <sql:query var="result" dataSource="${usuarios}">
                                 select * from general,usuarios
                                 where cargo="director" and agregar_director=?
@@ -211,7 +206,7 @@
                                 </sql:param>
                             </sql:query>
 
-                            <div>
+                            <div class="estu">
                                 <c:forEach var="itema" items="${result.rows}">
                                     <h1>estudiante</h1>
                                     <p>
@@ -255,7 +250,6 @@
                                         </c:if>
                                     </p>
                                 </c:forEach>
-
                             </div>
                         </div>
                         <a href="#">consulta calendario academico</a>
