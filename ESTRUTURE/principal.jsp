@@ -75,15 +75,15 @@
                                                         <td>
                                                             <c:out value="${fila.password}" />
                                                         </td>
-                                                        <td><a class=""
+                                                        <td><a class="button3"
                                                                 href="eliminar.jsp?id=${fila.cedula}">Eliminar</a></td>
-                                                        <td><a class=""
+                                                        <td><a class="button3"
                                                                 href="actualizar.jsp?id=${fila.cedula}">Editar</a></td>
                                                 </c:forEach>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <a href="../index.html">cerrar</a>
+                                        <a class="button4" href="../index.html">cerrar</a>
                                     </div>
                                 </div>
                             </div>

@@ -4,7 +4,8 @@
 }
 
 body {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 100vh;
 }
 
 .caja-todo {
@@ -14,6 +15,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(rgb(118, 255, 241), rgb(94, 170, 252));
 }
 
 .caja-error {
@@ -70,11 +72,10 @@ body {
 }
 
 .caja-intermedia {
-    width: 85%;
-    height: 85%;
+    width: 90%;
+    height: 90%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
@@ -92,14 +93,13 @@ body {
 .bienvenido {
     text-transform: capitalize;
     position: relative;
-    top: 20px;
     width: 100%;
 }
 
 .button2 {
     position: relative;
     top: -10px;
-    left: 200px;
+    left: 380px;
     transition: all 0.5s;
     font-size: 17px;
     padding: 0.7ch 2ch;
@@ -130,13 +130,127 @@ body {
 }
 
 table {
+    text-transform: uppercase;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.7);
+    background-color: white;
+    text-align: center;
     position: relative;
-    top: 50px;
-    border: 1px solid black;
-    width: 90%;
+    top: 20px;
+    border: none;
+    width: 1000px;
     height: auto;
+    min-height: 200px;
+    border-radius: 10px;
 }
 
-tbody,thead{
+tr,
+td,
+th {
     border: 1px solid black;
+    border-radius: 10px;
+}
+
+th {
+    background-color: rgb(121, 179, 255);
+}
+
+.button3 {
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s ease-in;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    color: #090909;
+    padding: 0.7em 1.7em;
+    font-size: 11px;
+    border-radius: 0.5em;
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+}
+
+.button3:active {
+    color: #666;
+    box-shadow: inset 4px 4px 12px #c5c5c5,
+        inset -4px -4px 12px #ffffff;
+}
+
+.button3:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.25);
+    top: 100%;
+    width: 140%;
+    height: 180%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+}
+
+.button3:after {
+    content: "";
+    position: absolute;
+    left: 55%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.45);
+    top: 180%;
+    width: 160%;
+    height: 190%;
+    background-color: #009087;
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+}
+
+.button3:hover {
+    color: #ffffff;
+    border: 1px solid #009087;
+    box-shadow: 1px 1px 12px 1px #2e2e2e
+}
+
+.button3:hover:before {
+    top: -35%;
+    background-color: #009087;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.button3:hover:after {
+    top: -45%;
+    background-color: #009087;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.button4 {
+    text-decoration: none;
+    position: relative;
+    top: 50px;
+    transition: all 0.5s;
+    font-size: 17px;
+    padding: 1ch 4.5ch;
+    background-color: white;
+    color: #000;
+    font-family: Roboto, sans-serif;
+    border: none;
+    font-weight: 700;
+    border-radius: 2px;
+    box-shadow: 2px 2px 0px hsl(0, 0%, 90%),
+        4px 4px 0px hsl(0, 0%, 80%),
+        6px 6px 0px hsl(0, 0%, 70%),
+        8px 8px 0px hsl(0, 0%, 60%),
+        10px 10px 0px hsl(0, 0%, 50%),
+        12px 12px 0px hsl(0, 0%, 40%),
+        14px 14px 0px hsl(0, 0%, 30%),
+        16px 16px 0px hsl(0, 0%, 20%),
+        18px 18px 0px hsl(0, 0%, 10%);
+}
+
+.button4:hover {
+    background-color: hsl(0, 0%, 100%);
+    color: #000000;
+    transform: scale(1.05);
+    box-shadow: 13px 13px 100px #969696,
+        -13px -13px 100px #ffffff;
 }
