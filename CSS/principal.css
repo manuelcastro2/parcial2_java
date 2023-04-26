@@ -337,28 +337,28 @@ th {
     justify-content: space-evenly;
 }
 
-.estu h1{
+.estu h1 {
     font-size: 40px;
 }
 
 
-.estu span{
-font-weight: 600;
+.estu span {
+    font-weight: 600;
 }
 
-.estu p{
+.estu p {
     text-align: center;
-font-weight: 100;
+    font-weight: 100;
 }
 
-.cambiar{
+.cambiar {
     text-decoration: none;
-    color:  rgb(255, 200, 0);
+    color: rgb(255, 200, 0);
     transition: all .4s ease-in-out;
 }
 
-.cambiar:hover{
-    color:  rgb(124, 97, 0);
+.cambiar:hover {
+    color: rgb(124, 97, 0);
     text-decoration: underline;
 }
 
@@ -396,3 +396,77 @@ font-weight: 100;
         -13px -13px 100px #ffffff;
 }
 
+.caja-estudiante {
+    width: 95%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button9 {
+    position: relative;
+    transition: all 0.5s;
+    text-decoration: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 13px;
+    padding: 1ch 10ch;
+    background-color: rgb(162, 255, 0);
+    color: #ffffff;
+    font-family: Roboto, sans-serif;
+    text-decoration: none;
+    border: none;
+    font-weight: 700;
+    border-radius: 2px;
+    box-shadow: 2px 2px 0px hsl(84, 99%, 47%),
+        4px 4px 0px hsl(84, 98%, 42%),
+        6px 6px 0px hsl(84, 99%, 38%),
+        8px 8px 0px hsl(84, 97%, 31%),
+        10px 10px 0px hsl(84, 98%, 26%),
+        12px 12px 0px hsl(84, 98%, 21%),
+        14px 14px 0px hsl(84, 97%, 15%),
+        16px 16px 0px hsl(84, 96%, 9%),
+        18px 18px 0px hsl(84, 100%, 6%);
+}
+
+.button9:hover {
+    background-color: hsl(0, 0%, 0%);
+    color: #ffffff;
+    transform: scale(1.05);
+    box-shadow: 13px 13px 100px #969696,
+        -13px -13px 100px #ffffff;
+}
+
+.datos-estudiante {
+    position: relative;
+    width: 50%;
+    height:95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    text-align: center;
+    gap: 5px;
+}
+
+.datos-estudiante h1 {
+    width: 100%;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.subir{
+    text-transform: uppercase;
+    font-size: 20px;
+    color: rgb(162, 255, 0);
+    text-decoration: none;
+    transition: all .4s ease-in-out;
+}
+
+.subir:hover{
+   text-decoration: underline;
+   color: rgb(70, 110, 0);
+}

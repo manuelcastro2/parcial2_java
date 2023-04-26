@@ -15,26 +15,25 @@
 </head>
 
 <body>
-    <form method="post">
-        <c:if test="${param.pro==null}">
-            <sql:query var="taller" dataSource="${usuarios}">
-                select * from usuarios,general where cedula=?
-                <sql:param value="${param.id}">
-                </sql:param>
-            </sql:query>
-            <c:forEach var="itema" items="${taller.rows}">
-                <c:if test="${itema.proyecto==null|| itema.estado_director=='desaprobado'}">
-                    <h1>SUBIENDO PROYECTO DEL ESTUDIANTE
-                        <c:out value="${itema.nombre}" />
-                    </h1>
-                    <input type="text" id="pro" name="pro" value="${itema.proyecto}">
-                    <c:set var="come" value="${itema.proyecto}"/>
-                    <button type="submit">Enviar</button>
+    <div class="caja-todo">
+        <div class="caja">
+        <form method="post">
+                <c:if test="${param.pro==null}">
+                        <sql:query var="taller" dataSource="${usuarios}">
+                            select * from general where estudiante=?
+                        <sql:param value="${param.id}">
+                            </sql:param>
+                        </sql:query>
+                            <c:forEach var="item" items="${taller.rows}" >
+                                <h1>SUBIENDO PROYECTO DEL ESTUDIANTE
+                                </h1>
+                                <input type="text" id="pro" name="pro" value="${item.proyecto}">
+                                <c:set var="come" value="${item.proyecto}" />
+                                <button type="submit">Enviar</button>
+                            </c:forEach>
                 </c:if>
-            </c:forEach>
-        </c:if>
-    </form>
-    <c:if test="${param.pro!=null}">
+        </form>
+        <c:if test="${param.pro!=null}">
             <c:if test="${param.pro!=come}">
                 <sql:update var="result3" dataSource="${usuarios}">
                     update general set proyecto='${param.pro}' where estudiante="${param.id}"
@@ -46,21 +45,23 @@
             <c:if test="${param.pro==come}">
                 <h1 class="caja-titulo2">fallo al subirlo vuelva a ingresar</h1>
             </c:if>
-    </c:if>
-    <sql:query var="taller2" dataSource="${usuarios}">
-        select * from usuarios where cedula="${param.id}"
-    </sql:query>
-    <form method="post" action="principal.jsp">
-        <c:forEach var="itema2" items="${taller2.rows}">
-            <input type="hidden" id="usuario" name="usuario" value="${itema2.cedula}">
-            <input type="hidden" id="contrasena" name="contrasena" value="${itema2.password}">
-            <input type="hidden" id="cargo" name="cargo" value="${itema2.cargo}">
-        </c:forEach>
-        <br>
-        <button type="submit">
-            <span>REGRESAR</span>
-        </button>
-    </form>
+        </c:if>
+        <sql:query var="taller2" dataSource="${usuarios}">
+            select * from usuarios where cedula="${param.id}"
+        </sql:query>
+            <form method="post" action="principal.jsp">
+                <c:forEach var="itema2" items="${taller2.rows}">
+                    <input type="hidden" id="usuario" name="usuario" value="${itema2.cedula}">
+                    <input type="hidden" id="contrasena" name="contrasena" value="${itema2.password}">
+                    <input type="hidden" id="cargo" name="cargo" value="${itema2.cargo}">
+                </c:forEach>
+                <br>
+                <button type="submit">
+                    <span>REGRESAR</span>
+                </button>
+            </form>
+        <div>
+    </div>
 
 </body>
 

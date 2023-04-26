@@ -93,108 +93,114 @@
                     </c:if>
 
                     <c:if test="${resultado.rows[0].cargo =='estudiante'}">
-                        <sql:query var="result" dataSource="${usuarios}">
-                            select * from general,usuarios
-                            where cargo="estudiante" and estudiante=?
-                            <sql:param value="${param.usuario}">
-                            </sql:param>
-                        </sql:query>
-                        <c:forEach var="itema" items="${result.rows}">
-                            <c:if test="${itema.cedula==itema.estudiante}">
-                                <c:if test="${itema.estado_coordinador=='aprobado'}">
-                                    <c:if test="${itema.proyecto==''||itema.estado_director=='desaprobado'}">
-                                        <a href="verestudiante.jsp?id=${itema.estudiante}">subir proyecto</a>
-                                    </c:if>
-                                </c:if>
-                            </c:if>
-                        </c:forEach>
-
-                        <div>
-                            <c:forEach var="itema" items="${result.rows}">
-                                <p>
-
-                                    <c:if test="${itema.cedula==itema.estudiante}">
-                                        <c:out value="${'pre-proyecto: '}" />
-                                        <c:out value="${itema.pre_proyecto}" />
-                                    </c:if>
-                                </p>
-                                <p>
-                                    <c:if test="${itema.cedula==itema.estudiante}">
-                                        <c:out value="${'proyecto: '}" />
-                                        <c:if test="${itema.estado_coordinador=='revision'}">
-                                            <c:out value="${'aun no se puede subir proyecto'}" />
-                                        </c:if>
-                                        <c:if test="${itema.estado_coordinador=='aprobado' &&itema.proyecto==''}">
-                                            <c:out value="${'ya se puede subir'}" />
-                                        </c:if>
-                                        <c:if test="${itema.estado_coordinador=='aprobado' &&itema.proyecto!=''}">
-                                            <c:out value="${itema.proyecto}" />
-                                        </c:if>
-                                    </c:if>
-                                </p>
-                                <p>
-                                    <c:if test="${itema.cedula==itema.estudiante}">
-                                        <c:out value="${'estudiante: '}" />
-                                        <c:out value="${itema.estudiante}" />
-                                        <c:out value="${itema.nombre} ${itema.apellido}" />
-                                    </c:if>
-                                </p>
-                                <sql:query var="result2" dataSource="${usuarios}">
-                                    select * from usuarios
-                                    where cedula='${itema.agregar_director}'
-                                </sql:query>
-                            </c:forEach>
-                            <c:forEach var="itema2" items="${result2.rows}">
-                                <p>
-                                    <c:if test="${itema.cedula==itema.estudiante}">
-                                        <c:out value="${'director: '}" />
-                                        <c:out value="${itema2.cedula}" />
-                                        <c:out value="${itema2.nombre} ${itema2.apellido}" />
-                                    </c:if>
-                                </p>
-                            </c:forEach>
+                        <div class="caja-estudiante">
+                            <sql:query var="result" dataSource="${usuarios}">
+                                select * from general,usuarios
+                                where cargo="estudiante" and estudiante=?
+                                <sql:param value="${param.usuario}">
+                                </sql:param>
+                            </sql:query>
                             <c:forEach var="itema" items="${result.rows}">
                                 <c:if test="${itema.cedula==itema.estudiante}">
-                                    <p>
-                                        <c:out value="${'estado coordinador: '}" />
-                                        <c:out value="${itema.estado_coordinador}" />
-                                    </p>
-                                    <p>
-                                        <c:out value="${'estado director : '}" />
-                                        <c:if
-                                            test="${itema.estado_coordinador=='aprobado' && itema.estado_director!=''}">
-                                            <c:out value="${itema.estado_director}" />
+                                    <c:if test="${itema.estado_coordinador=='aprobado'}">
+                                        <c:if test="${itema.proyecto==''||itema.estado_director=='desaprobado'}">
+                                            <a class="subir" href="verestudiante.jsp?id=${itema.estudiante}">subir proyecto</a>
                                         </c:if>
-                                        <c:if
-                                            test="${itema.estado_coordinador=='aprobado' && itema.estado_director==''}">
-                                            <c:out value="${'No revisado'}" />
-                                        </c:if>
-                                    </p>
-                                    <p>
-                                        <c:out value="${'estado evaluador: '}" />
-                                        <c:if
-                                            test="${itema.estado_coordinador=='aprobado' && itema.estado_evaluador!=''}">
-                                            <c:out value="${itema.estado_evaluador}" />
-                                        </c:if>
-                                        <c:if
-                                            test="${itema.estado_coordinador=='aprobado' && itema.estado_evaluador==''}">
-                                            <c:out value="${'No revisado'}" />
-                                        </c:if>
-
-                                    </p>
-                                    <p>
-                                        <c:if test="${itema.estado_evaluador!='' && itema.calificacion!=''}">
-                                            <c:out value="${'calificacion: '}" />
-                                            <c:out value="${itema.calificacion}" />
-                                        </c:if>
-                                    </p>
+                                    </c:if>
                                 </c:if>
                             </c:forEach>
-                        </div>
 
-                        <a href="#">consulta calendario academico</a>
-                        <a href="#">consultar formato de grado</a>
-                        <a href="../index.html">cerrar sesion</a>
+                            <div class="datos-estudiante">
+                            <h1>INFORMACION</h1>
+                                <c:forEach var="itema" items="${result.rows}">
+                                    <p>
+
+                                        <c:if test="${itema.cedula==itema.estudiante}">
+                                            <c:out value="${'pre-proyecto: '}" /><br>
+                                            <c:out value="${itema.pre_proyecto}" />
+                                        </c:if>
+                                    </p>
+                                    <p>
+                                        <c:if test="${itema.cedula==itema.estudiante}">
+                                            <c:out value="${'proyecto: '}" /><br>
+                                            <c:if test="${itema.estado_coordinador=='revision'}">
+                                                <c:out value="${'aun no se puede subir proyecto'}" />
+                                            </c:if>
+                                            <c:if test="${itema.estado_coordinador=='aprobado' &&itema.proyecto==''}">
+                                                <c:out value="${'ya se puede subir'}" />
+                                            </c:if>
+                                            <c:if test="${itema.estado_coordinador=='aprobado' &&itema.proyecto!=''}">
+                                                <c:out value="${itema.proyecto}" />
+                                            </c:if>
+                                        </c:if>
+                                    </p>
+                                    <p>
+                                        <c:if test="${itema.cedula==itema.estudiante}">
+                                            <c:out value="${'estudiante: '}" /><br>
+                                            <c:out value="${'cc:' }" />
+                                            <c:out value="${itema.estudiante}" /><br>
+                                            <c:out value="${'Nombre:' }" />
+                                            <c:out value="${itema.nombre} ${itema.apellido}" />
+                                        </c:if>
+                                    </p>
+                                    <sql:query var="result2" dataSource="${usuarios}">
+                                        select * from usuarios
+                                        where cedula='${itema.agregar_director}'
+                                    </sql:query>
+                                </c:forEach>
+                                <c:forEach var="itema2" items="${result2.rows}">
+                                    <p>
+                                        <c:if test="${itema.cedula==itema.estudiante}">
+                                            <c:out value="${'director: '}" /><br>
+                                            <c:out value="${'cc: '}" />
+                                            <c:out value="${itema2.cedula}" /><br>
+                                            <c:out value="${'Nombre: '}" />
+                                            <c:out value="${itema2.nombre} ${itema2.apellido}" />
+                                        </c:if>
+                                    </p>
+                                </c:forEach>
+                                <c:forEach var="itema" items="${result.rows}">
+                                    <c:if test="${itema.cedula==itema.estudiante}">
+                                        <p>
+                                            <c:out value="${'estado coordinador: '}" />
+                                            <c:out value="${itema.estado_coordinador}" />
+                                        </p>
+                                        <p>
+                                            <c:out value="${'estado director : '}" />
+                                            <c:if
+                                                test="${itema.estado_coordinador=='aprobado' && itema.estado_director!=''}">
+                                                <c:out value="${itema.estado_director}" />
+                                            </c:if>
+                                            <c:if
+                                                test="${itema.estado_coordinador=='aprobado' && itema.estado_director==''}">
+                                                <c:out value="${'No revisado'}" />
+                                            </c:if>
+                                        </p>
+                                        <p>
+                                            <c:out value="${'estado evaluador: '}" />
+                                            <c:if
+                                                test="${itema.estado_coordinador=='aprobado' && itema.estado_evaluador!=''}">
+                                                <c:out value="${itema.estado_evaluador}" />
+                                            </c:if>
+                                            <c:if
+                                                test="${itema.estado_coordinador=='aprobado' && itema.estado_evaluador==''}">
+                                                <c:out value="${'No revisado'}" />
+                                            </c:if>
+
+                                        </p>
+                                        <p>
+                                            <c:if test="${itema.estado_evaluador!='' && itema.calificacion!=''}">
+                                                <c:out value="${'calificacion: '}" />
+                                                <c:out value="${itema.calificacion}" />
+                                            </c:if>
+                                        </p>
+                                    </c:if>
+                                </c:forEach>
+                            </div>
+                            <a class="button9" href="#">consulta calendario academico</a>
+                            <a class="button9" href="#">consultar formato de grado</a>
+                            <a class="button9" href="../index.html">cerrar sesion</a>
+                        </div>
                     </c:if>
 
                     <c:if test="${resultado.rows[0].cargo =='director'}">
@@ -209,7 +215,9 @@
                                 <div class="estu">
                                     <h1>estudiante</h1>
                                     <p>
-                                        <span><c:out value="${'pre-proyecto: '}" /></span><br>
+                                        <span>
+                                            <c:out value="${'pre-proyecto: '}" />
+                                        </span><br>
                                         <c:out value="${itema.pre_proyecto}" />
                                     </p>
                                     <p>
@@ -241,15 +249,17 @@
                                         <c:if test="${itema.estado_coordinador=='aprobado' &&itema.proyecto!=''}">
                                             <c:if test="${itema.estado_director==''}">
                                                 <c:out value="${'estado: '}" /><br>
-                                                <a class="cambiar" href="verdirector.jsp?id=${itema.estudiante}">cambiar estado</a>
+                                                <a class="cambiar" href="verdirector.jsp?id=${itema.estudiante}">cambiar
+                                                    estado</a>
                                             </c:if>
                                             <c:if test="${itema.estado_director=='desaprobado'}">
                                                 <c:out value="${'estado: '}" />
                                                 <c:out value="${itema.estado_director}" />
-                                                <a class="cambiar" href="verdirector.jsp?id=${itema.estudiante}">cambiar</a>
+                                                <a class="cambiar"
+                                                    href="verdirector.jsp?id=${itema.estudiante}">cambiar</a>
                                             </c:if>
                                             <c:if test="${itema.estado_director=='aprobado'}">
-                                                <c:out value=" ${'estado: '}"/>
+                                                <c:out value=" ${'estado: '}" />
                                                 <c:out value="${itema.estado_director}" />
                                             </c:if>
                                         </c:if>
