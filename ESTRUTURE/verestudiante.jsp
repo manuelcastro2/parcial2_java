@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/actualizarProfesor.css">
+    <link rel="stylesheet" href="../CSS/ver_estudiante.css">
     <title>VER PROYECTO Y ESTADO</title>
 </head>
 
@@ -38,12 +38,11 @@
                 <sql:update var="result3" dataSource="${usuarios}">
                     update general set proyecto='${param.pro}' where estudiante="${param.id}"
                 </sql:update>
-
-                <h1 class="caja-titulo2">Proyecto subido correctamente</h1>
+                <h1>Proyecto subido correctamente</h1>
             </c:if>
 
             <c:if test="${param.pro==come}">
-                <h1 class="caja-titulo2">fallo al subirlo vuelva a ingresar</h1>
+                <h1 >fallo al subirlo vuelva a ingresar</h1>
             </c:if>
         </c:if>
         <sql:query var="taller2" dataSource="${usuarios}">
@@ -62,7 +61,6 @@
             </form>
         <div>
     </div>
-
 </body>
 
 </html>

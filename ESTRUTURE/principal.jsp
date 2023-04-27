@@ -104,14 +104,15 @@
                                 <c:if test="${itema.cedula==itema.estudiante}">
                                     <c:if test="${itema.estado_coordinador=='aprobado'}">
                                         <c:if test="${itema.proyecto==''||itema.estado_director=='desaprobado'}">
-                                            <a class="subir" href="verestudiante.jsp?id=${itema.estudiante}">subir proyecto</a>
+                                            <a class="subir" href="verestudiante.jsp?id=${itema.estudiante}">subir
+                                                proyecto</a>
                                         </c:if>
                                     </c:if>
                                 </c:if>
                             </c:forEach>
 
                             <div class="datos-estudiante">
-                            <h1>INFORMACION</h1>
+                                <h1>INFORMACION</h1>
                                 <c:forEach var="itema" items="${result.rows}">
                                     <p>
 
@@ -275,14 +276,13 @@
 
                     <c:if test="${resultado.rows[0].cargo =='evaluador'}">
 
-                        <div>
+                        <div class="caja4">
                             <sql:query var="result" dataSource="${usuarios}">
                                 select * from general
                                 where estado_director='aprobado'
                             </sql:query>
-
-                            <div>
-                                <c:forEach var="itema" items="${result.rows}">
+                            <c:forEach var="itema" items="${result.rows}">
+                                <div class="caja-evaluador">
                                     <h1>estudiante</h1>
                                     <p>
                                         <c:out value="${'pre-proyecto: '}${itema.pre_proyecto}" />
@@ -341,10 +341,10 @@
                                             </c:if>
                                         </c:if>
                                     </p>
+                                </div>
+                            </c:forEach>
 
-                                </c:forEach>
 
-                            </div>
                         </div>
                         <a href="#">consulta calendario academico</a>
                         <a href="#">consultar formato de grado</a>

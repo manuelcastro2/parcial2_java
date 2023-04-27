@@ -12,32 +12,37 @@ font-family: Arial, Helvetica, sans-serif;
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .caja{
+    position: relative;
+    top: 30px;
     width: 90%;
-    height: 40%;
+    height: 30%;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    border: 1px solid;
-}
-
-input{
-    width: 90%;
-    padding: 10px 0;
-    outline: 0 none;
-    border: 1px solid rgb(162, 255, 0);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0,0.5);
     border-radius: 10px;
 }
 
-input:focus{
-    box-shadow: 0px 0px 10px rgb(162, 255, 0, 0.5);
+select{
+    font-weight: 600;
+    text-transform: uppercase;
+    width: 90%;
+    padding: 10px 0;
+    outline: 0 none;
+    border: 1px solid rgb(255, 213, 0);
+    border-radius: 10px;
 }
 
-input:focus{
-    border-color: rgb(58, 92, 0);
+select:focus{
+    box-shadow: 0px 0px 10px rgba(255, 213, 0, 0.5);
+}
+
+select:focus{
+    border-color: rgb(92, 81, 0);
 }
 
 button {
@@ -48,22 +53,22 @@ button {
     margin-bottom: 5px;
     font-size: 13px;
     padding: 1ch 10ch;
-    background-color: rgb(162, 255, 0);
+    background-color: rgb(255, 213, 0);
     color: #ffffff;
     font-family: Roboto, sans-serif;
     text-decoration: none;
     border: none;
     font-weight: 700;
     border-radius: 2px;
-    box-shadow: 2px 2px 0px hsl(84, 99%, 47%),
-        4px 4px 0px hsl(84, 98%, 42%),
-        6px 6px 0px hsl(84, 99%, 38%),
-        8px 8px 0px hsl(84, 97%, 31%),
-        10px 10px 0px hsl(84, 98%, 26%),
-        12px 12px 0px hsl(84, 98%, 21%),
-        14px 14px 0px hsl(84, 97%, 15%),
-        16px 16px 0px hsl(84, 96%, 9%),
-        18px 18px 0px hsl(84, 100%, 6%);
+    box-shadow: 2px 2px 0px hsl(48, 99%, 47%),
+        4px 4px 0px hsl(48, 98%, 42%),
+        6px 6px 0px hsl(48, 99%, 38%),
+        8px 8px 0px hsl(48, 97%, 31%),
+        10px 10px 0px hsl(48, 98%, 26%),
+        12px 12px 0px hsl(48, 98%, 21%),
+        14px 14px 0px hsl(48, 97%, 15%),
+        16px 16px 0px hsl(48, 96%, 9%),
+        18px 18px 0px hsl(48, 100%, 6%);
 }
 
 button:hover {
@@ -72,4 +77,9 @@ button:hover {
     transform: scale(1.05);
     box-shadow: 13px 13px 100px #969696,
         -13px -13px 100px #ffffff;
+}
+
+select,button,h1{
+    position: relative;
+    top: 30px;
 }

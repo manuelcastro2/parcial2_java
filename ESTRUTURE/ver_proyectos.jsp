@@ -119,7 +119,7 @@
                                             </select>
                                             <input type="hidden" name="modificar" id="modificar"
                                                 value="${itema.estudiante}">
-                                            <button type="submit">cambiar</button>
+                                            <button class="button8" type="submit">cambiar</button>
                                         </form>
                                     </c:if>
                                 </p>
