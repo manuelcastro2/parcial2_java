@@ -475,16 +475,19 @@ th {
     width: 90%;
     height: 90%;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
     background-color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+    gap: 20px;
 }
 
 .caja-evaluador{
-    width: 45%;
+    gap: 5px;
+    text-transform: uppercase;
+    text-align: center;
+    width: 30%;
     height: 90%;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
     border-radius: 10px;
@@ -492,4 +495,82 @@ th {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.caja-evaluador h1{
+    font-size: 30px;
+    position: relative;
+    bottom: 15px;
+}
+
+.caja-evaluador p{
+    text-transform: uppercase;
+}
+
+.button10 {
+    position: relative;
+    transition: all 0.5s;
+    text-decoration: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 13px;
+    padding: 1ch 10ch;
+    background-color: rgb(0, 238, 255);
+    color: #ffffff;
+    font-family: Roboto, sans-serif;
+    text-decoration: none;
+    border: none;
+    font-weight: 700;
+    border-radius: 2px;
+    box-shadow: 2px 2px 0px hsl(183, 99%, 47%),
+        4px 4px 0px hsl(183, 98%, 42%),
+        6px 6px 0px hsl(183, 99%, 38%),
+        8px 8px 0px hsl(183, 97%, 31%),
+        10px 10px 0px hsl(183, 98%, 26%),
+        12px 12px 0px hsl(183, 98%, 21%),
+        14px 14px 0px hsl(183, 97%, 15%),
+        16px 16px 0px hsl(183, 96%, 9%),
+        18px 18px 0px hsl(183, 100%, 6%);
+}
+
+.button10:hover {
+    background-color: hsl(0, 0%, 0%);
+    color: #ffffff;
+    transform: scale(1.05);
+    box-shadow: 13px 13px 100px #969696,
+        -13px -13px 100px #ffffff;
+}
+
+.button11 {
+    position: relative;
+    transition: all 0.5s;
+    text-decoration: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 13px;
+    padding: 0.5ch 2ch;
+    background-color: rgb(0, 238, 255);
+    color: #ffffff;
+    font-family: Roboto, sans-serif;
+    text-decoration: none;
+    border: none;
+    font-weight: 700;
+    border-radius: 2px;
+    box-shadow: 2px 2px 0px hsl(183, 99%, 47%),
+        4px 4px 0px hsl(183, 98%, 42%),
+        6px 6px 0px hsl(183, 99%, 38%),
+        8px 8px 0px hsl(183, 97%, 31%),
+        10px 10px 0px hsl(183, 98%, 26%),
+        12px 12px 0px hsl(183, 98%, 21%),
+        14px 14px 0px hsl(183, 97%, 15%),
+        16px 16px 0px hsl(183, 96%, 9%),
+        18px 18px 0px hsl(183, 100%, 6%);
+}
+
+.button11:hover {
+    background-color: hsl(0, 0%, 0%);
+    color: #ffffff;
+    transform: scale(1.05);
+    box-shadow: 13px 13px 100px #969696,
+        -13px -13px 100px #ffffff;
 }

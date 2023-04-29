@@ -86,8 +86,8 @@
                     <c:if test="${resultado.rows[0].cargo =='coordinador'}">
                         <div class="caja2">
                             <a class="button5" href="ver_proyectos.jsp">ver proyectos</a>
-                            <a class="button5" href="#">consulta calendario academico</a>
-                            <a class="button5" href="#">consultar formato de grado</a>
+                            <a class="button5"target="_blank" href="https://www.uts.edu.co/sitio/wp-content/uploads/normatividad/acuerdos/acu-98.pdf?_t=1664592218">consulta calendario academico</a>
+                            <a class="button5"target="_blank" href="#">consultar formato de grado</a>
                             <a class="button5" href="../index.html">cerrar</a>
                         </div>
                     </c:if>
@@ -198,8 +198,8 @@
                                     </c:if>
                                 </c:forEach>
                             </div>
-                            <a class="button9" href="#">consulta calendario academico</a>
-                            <a class="button9" href="#">consultar formato de grado</a>
+                            <a class="button9"target="_blank" href="https://www.uts.edu.co/sitio/wp-content/uploads/normatividad/acuerdos/acu-98.pdf?_t=1664592218">consulta calendario academico</a>
+                            <a class="button9"target="_blank" href="#">consultar formato de grado</a>
                             <a class="button9" href="../index.html">cerrar sesion</a>
                         </div>
                     </c:if>
@@ -268,8 +268,8 @@
                                 </div>
                             </c:forEach>
                         </div>
-                        <a class="button8" href="#">consulta calendario academico</a>
-                        <a class="button8" href="#">consultar formato de grado</a>
+                        <a class="button8"target="_blank" href="https://www.uts.edu.co/sitio/wp-content/uploads/normatividad/acuerdos/acu-98.pdf?_t=1664592218">consulta calendario academico</a>
+                        <a class="button8"target="_blank" href="#">consultar formato de grado</a>
                         <a class="button8" href="../index.html">cerrar sesion</a>
                     </c:if>
 
@@ -285,17 +285,21 @@
                                 <div class="caja-evaluador">
                                     <h1>estudiante</h1>
                                     <p>
-                                        <c:out value="${'pre-proyecto: '}${itema.pre_proyecto}" />
+                                        <c:out value="${'pre-proyecto: '}" /><br>
+                                        <c:out value="${itema.pre_proyecto}" />
                                     </p>
                                     <p>
                                         <c:if test="${itema.estado_coordinador=='revision' &&itema.proyecto==''}">
-                                            <c:out value="${'pre-proyecto: '}${'proceso espera'}" />
+                                            <c:out value="${'pre-proyecto: '}" /><br>
+                                            <c:out value="${'proceso espera'}" />
                                         </c:if>
                                         <c:if test="${itema.estado_coordinador=='aprobado' &&itema.proyecto==''}">
-                                            <c:out value="${'proyecto: '}${'falta proyecto'}" />
+                                            <c:out value="${'proyecto: '}" /><br>
+                                            <c:out value="${'falta proyecto'}" />
                                         </c:if>
                                         <c:if test="${itema.estado_coordinador=='aprobado' &&itema.proyecto!=''}">
-                                            <c:out value="${'proyecto: '}${itema.proyecto}" />
+                                            <c:out value="${'proyecto: '}" /><br>
+                                            <c:out value="${itema.proyecto}" />
                                         </c:if>
                                     </p>
                                     <p>
@@ -304,9 +308,9 @@
                                             where cargo="estudiante" and cedula='${itema.estudiante}'
                                         </sql:query>
                                         <c:forEach var="itema6" items="${result.rows}">
-                                            <c:out value="${'estudiante: '}" />
-                                            <c:out value="${'cedula: '}${itema.estudiante}" />
-                                            <c:out value="${'nombre: '}${itema6.nombre} ${itema6.apellido}" />
+                                            <c:out value="${'estudiante: '}" /><br>
+                                            <c:out value="${'cedula: '} ${itema.estudiante}" /><br>
+                                            <c:out value="${'nombre: '} ${itema6.nombre} ${itema6.apellido}" />
                                         </c:forEach>
                                     </p>
                                     <p>
@@ -324,7 +328,7 @@
                                                         value="${itema.estudiante}">
                                                     <input type="hidden" id="cedu" name="cedu"
                                                         value="${resultado.rows[0].cedula}">
-                                                    <button type="submit">cambiar</button>
+                                                    <button class="button11" type="submit">cambiar</button>
                                                 </form>
                                             </c:if>
                                             <c:if test="${itema.estado_evaluador=='desaprobado'}">
@@ -333,7 +337,7 @@
                                                     <input type="hidden" id="id" name="id" value="${itema.estudiante}">
                                                     <input type="hidden" id="cedu" name="cedu"
                                                         value="${resultado.rows[0].cedula}">
-                                                    <button type="submit">cambiar</button>
+                                                    <button class="button11" type="submit">cambiar</button>
                                                 </form>
                                             </c:if>
                                             <c:if test="${itema.estado_evaluador=='aprobado'}">
@@ -346,9 +350,9 @@
 
 
                         </div>
-                        <a href="#">consulta calendario academico</a>
-                        <a href="#">consultar formato de grado</a>
-                        <a href="../index.html">cerrar sesion</a>
+                        <a class="button10" target="_blank" href="https://www.uts.edu.co/sitio/wp-content/uploads/normatividad/acuerdos/acu-98.pdf?_t=1664592218">consulta calendario academico</a>
+                        <a class="button10"target="_blank" href="#">consultar formato de grado</a>
+                        <a class="button10" href="../index.html">cerrar sesion</a>
                     </c:if>
 
                     <c:if test="${resultado.rowCount eq 0}">

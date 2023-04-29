@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-04-2023 a las 07:54:20
+-- Tiempo de generación: 29-04-2023 a las 07:03:39
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -43,8 +43,8 @@ CREATE TABLE `general` (
 --
 
 INSERT INTO `general` (`pre_proyecto`, `proyecto`, `estudiante`, `agregar_director`, `estado_coordinador`, `estado_director`, `estado_evaluador`, `calificacion`) VALUES
-('encriptacion', 'encriptacion movil funcional', '1234567890', '22233344', 'aprobado', 'aprobado', '', ''),
-('video', '', '122869766', '22233344', 'aprobado', '', '', '');
+('encriptacion', 'encriptacion movil funcional', '1234567890', '22233344', 'aprobado', 'aprobado', 'desaprobado', ''),
+('video', 'video recreativo', '122869766', '22233344', 'aprobado', 'aprobado', '', '');
 
 -- --------------------------------------------------------
 
