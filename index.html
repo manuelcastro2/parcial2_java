@@ -5,17 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--LINK DEL CSS-->
     <link rel="stylesheet" href="CSS/index.css">
     <title>INICIO DE SESION</title>
 </head>
 
 <body>
+    <!--DIV QUE ENCIERRA TODO Y OCUPA TODO LO QUE ES EL BODY-->
     <div class="caja-todo">
         <h1>SISTEMA UNIVERSITARIO</h1>
+        <!--DIV QUE ENCIERRA EL CONTENIDO E INTERACION CON EL USUARIO-->
         <div class="caja-inicio">
             <h2>INICIO SESION</h2>
+            <!--DIRECCIONAMIENTO DEL FORM A LA PAGINA PRINCIPAL-->
             <form action="ESTRUTURE/principal.jsp" method="post">
                 <div class="caja-contenido">
+                    <!--SELECCION DE CARGO ATRAVEZ DE LA ETIQUETA SELECT,OPTION -->
                     <select class="input" id="cargo" name="cargo">
                         <option value="administrador">Selecione Cargo</option>
                         <option value="coordinador">coordinador</option>
@@ -23,10 +28,13 @@
                         <option value="evaluador">evaluador</option>
                         <option value="estudiante">estudiante</option>
                     </select>
+                    <!--PIDIENDO INFORMACION DE CEDULA AL USUARIO-->
                     <input class="input" type="text" id="usuario" name="usuario" placeholder="Cedula">
+                    <!--PIDIENDO LA CONTRASEÑA-->
                     <input class="input" type="password" id="contrasena" name="contrasena" placeholder="Contraseña">
                 </div>
-                <button type="submit">INICIO SESION</button>
+                <!--ENVIO LOS DATOS REGISTRADOS-->
+                <button type="submit">INICIO SESION</button> 
             </form>
         </div>
     </div>

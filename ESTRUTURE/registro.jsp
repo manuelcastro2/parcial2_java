@@ -1,3 +1,4 @@
+<!--LIBRERIAS DE JSTL-->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -10,21 +11,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--LINK DEL CSS-->
     <link rel="stylesheet" href="../CSS/registro.css">
     <title>REGISTRO DE USUARIOS</title>
 </head>
 
 <body>
-    <sql:query var="result" scope="request" dataSource="${usuarios}">
-        select * from usuarios
-    </sql:query>
+    <!--DIV QUE ENCIERRA EL TODO-->
     <div class="caja-todo">
+        <!--DIV QUE ENCIERRA EL CONTENIDO PERO NO SE MUESTRA EN TODA LA PANTALLA-->
         <div class=caja-intermedia>
+            <!--DIV TITULO-->
             <div class="caja-titulo">
                 <h1>SISTEMA UNIVERSITARIO</h1>
                 <h1 class="titulo-pagina">AGREGAR USUARIO</h1>
             </div>
+            <!--DIV QUE ENCIERRA EL CONTENIDO-->
             <div class="caja-delantera">
+                <!--CONDICIONAL DE QUE SI ESTAN VACIOS LOS PARAMETROS MUESTRE ESTO-->
                 <c:if test="${param.cedula==null && param.nombre==null && param.cargo==null && param.contra==null}">
                     <form method="post">
 
@@ -44,13 +48,17 @@
                         <button type="submit">REGISTRAR</button>
                     </form>
                 </c:if>
+                <!--CONDICIONAL SI NO ESTAN VACIOS MUESTRE ESTO-->
                 <c:if test="${param.cedula!=null && param.nombre!=null && param.cargo!=null}">
+                    <!--SQL PARA INSERTAR LOS DATOS A LA BASE DE DATOS-->
                     <sql:update var="result" dataSource="${usuarios}">
                         insert into usuarios (cedula,nombre,apellido,cargo,password)
                         values('${param.cedula}','${param.nombre}','${param.apellido}','${param.cargo}','${param.contra}')
                     </sql:update>
+                    <!--LA INSERTACION ES CORRECTA MUESTRE ESTO-->
                     <c:if test="${result == 1}">
                         <h1 class="caja-titulo2">REgistro exitoso</h1>
+                        <!--SQL PARA CONFIRMAR QUE ES ADMINISTRADOR-->
                         <sql:query var="taller" dataSource="${usuarios}">
                             select * from usuarios where cedula="1005259101"
                         </sql:query>
