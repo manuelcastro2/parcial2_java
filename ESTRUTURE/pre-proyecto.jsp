@@ -87,7 +87,7 @@
                         </button>
                     </form>
                     <br>
-                    <a href="pre-proyecto.jsp">INGREDAR OTRO PRE-PROYECTO</a>
+                    <a href="pre-proyecto.jsp">INGRESAR OTRO PRE-PROYECTO</a>
                    </div>
                 </c:if>
             </c:if>

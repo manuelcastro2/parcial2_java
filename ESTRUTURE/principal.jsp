@@ -6,7 +6,6 @@
 <%@ include file="../WEB-INF/jspf/conexion.jspf" %>
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +13,6 @@
     <title>PRINCIPAL</title>
     <link rel="stylesheet" href="../CSS/principal.css">
 </head>
-
 <body>
     <!--DIV QUE ENCIERRA TODO-->
     <div class="caja-todo">
