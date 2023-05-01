@@ -163,15 +163,9 @@
                                             <c:if test="${itema.estado_coordinador=='aprobado' &&itema.proyecto!=''}">
                                                 <c:out value="${itema.proyecto}" />
                                             </c:if>
-                                        </c:if>
-                                    </p>
-                                    <p>
-                                        <c:if test="${itema.cedula==itema.estudiante}">
-                                            <c:out value="${'estudiante: '}" /><br>
-                                            <c:out value="${'cc:' }" />
-                                            <c:out value="${itema.estudiante}" /><br>
-                                            <c:out value="${'Nombre:' }" />
-                                            <c:out value="${itema.nombre} ${itema.apellido}" />
+                                            <c:if test="${itema.estado_coordinador=='desaprobado'}">
+                                                <font color="red"><c:out value="${'proyecto anulado'}" /></font>
+                                            </c:if>
                                         </c:if>
                                     </p>
                                     <!--CONSULTA DE LA INFORMACION DEL DIRECTOR-->
@@ -199,15 +193,24 @@
                                     <c:if test="${itema.cedula==itema.estudiante}">
                                         <p>
                                             <c:out value="${'estado coordinador: '}" />
-                                            <c:out value="${itema.estado_coordinador}" />
+                                            <c:if test="${itema.estado_coordinador=='desaprobado'}">
+                                                <font color="red"><c:out value="${itema.estado_coordinador}" /></font>
+                                            </c:if>
+                                            <c:if test="${itema.estado_coordinador=='aprobado'}">
+                                                <font><c:out value="${itema.estado_coordinador}" /></font>
+                                            </c:if>
                                         </p>
                                         <!--CONDICIONALES DE MUESTRE DEL ESTADO DEL DIRECTOR-->
                                         <p>
                                             <c:out value="${'estado director : '}" />
                                             <c:if
-                                                test="${itema.estado_coordinador=='aprobado' && itema.estado_director!=''}">
+                                                test="${itema.estado_coordinador=='aprobado' &&itema.estado_director=='aprobado'}">
                                                 <c:out value="${itema.estado_director}" />
                                             </c:if>
+                                            <c:if
+                                                test="${itema.estado_coordinador=='aprobado' &&itema.estado_director=='desaprobado'}">
+                                                <font color="red"><c:out value="${itema.estado_director}" /></font>
+                                            </c:if> 
                                             <c:if
                                                 test="${itema.estado_coordinador=='aprobado' && itema.estado_director==''}">
                                                 <c:out value="${'No revisado'}" />

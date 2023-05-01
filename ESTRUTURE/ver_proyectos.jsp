@@ -104,7 +104,12 @@
                                 <span>
                                     <c:out value="${'estado coordinador:'}" />
                                 </span>
-                                <c:out value="${itema.estado_coordinador}" />
+                                <c:if test="${itema.estado_coordinador=='desaprobado'}">
+                                    <font color="red"><c:out value="${itema.estado_coordinador}" /></font>
+                                </c:if>
+                                <c:if test="${itema.estado_coordinador=='aprobado'}">
+                                    <font><c:out value="${itema.estado_coordinador}" /></font>
+                                </c:if>
                             </p>
                         </c:if>
                         <!--CONDICIONAL DEL MOSTRADO DEL DIRECTOR-->
@@ -143,7 +148,7 @@
                                         <form method="post">
                                             <select name="est_coordinador" id="est_coordinador">
                                                 <option value="aprobado">aprobado</option>
-                                                <option value="no aprobado">no aprobado</option>
+                                                <option value="desaprobado">no aprobado</option>
                                             </select>
                                             <input type="hidden" name="modificar" id="modificar"
                                                 value="${itema.estudiante}">
