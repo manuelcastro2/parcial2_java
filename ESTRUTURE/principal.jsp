@@ -111,7 +111,7 @@
                                 href="https://www.uts.edu.co/sitio/wp-content/uploads/normatividad/acuerdos/acu-98.pdf?_t=1664592218">consulta
                                 calendario academico</a>
                                 <!--DIRECCIONAMIENTO A LA PAGINA DEL FORMATO DE GRADO-->
-                            <a class="button5" target="_blank" href="#">consultar formato de grado</a>
+                            <a class="button5" target="_blank" href="https://www.dropbox.com/sh/2937zx708zgncsw/AAA0pUsWY74w6GHJ4DksaTa1a/DOCUMENTOS%20DE%20GRADO?dl=0&subfolder_nav_tracking=1">consultar formato de grado</a>
                             <!--DIRECCIONAMIENTO A LA PAGINA DE INICIO-->
                             <a class="button5" href="../index.html">cerrar</a>
                         </div>
@@ -236,7 +236,7 @@
                                 href="https://www.uts.edu.co/sitio/wp-content/uploads/normatividad/acuerdos/acu-98.pdf?_t=1664592218">consulta
                                 calendario academico</a>
                                 <!--DIRECCIONAMIENTO A LA PAGINA DE FORMATO DE GRADO-->
-                            <a class="button9" target="_blank" href="#">consultar formato de grado</a>
+                            <a class="button9" target="_blank" href="https://www.dropbox.com/sh/2937zx708zgncsw/AAA0pUsWY74w6GHJ4DksaTa1a/DOCUMENTOS%20DE%20GRADO?dl=0&subfolder_nav_tracking=1">consultar formato de grado</a>
                             <!--DIRECCIONAMIENTO A LA PAGINA DE INICIO-->
                             <a class="button9" href="../index.html">cerrar sesion</a>
                         </div>
@@ -318,7 +318,7 @@
                             href="https://www.uts.edu.co/sitio/wp-content/uploads/normatividad/acuerdos/acu-98.pdf?_t=1664592218">consulta
                             calendario academico</a>
                             <!--DIRECIONAMIENTO DEL FORMATO DE GRADO-->
-                        <a class="button8" target="_blank" href="#">consultar formato de grado</a>
+                        <a class="button8" target="_blank" href="https://www.dropbox.com/sh/2937zx708zgncsw/AAA0pUsWY74w6GHJ4DksaTa1a/DOCUMENTOS%20DE%20GRADO?dl=0&subfolder_nav_tracking=1">consultar formato de grado</a>
                         <!--DIRECCIONAMIENTO A LA PAGINA INICIO-->
                         <a class="button8" href="../index.html">cerrar sesion</a>
                     </c:if>
@@ -412,7 +412,7 @@
                             href="https://www.uts.edu.co/sitio/wp-content/uploads/normatividad/acuerdos/acu-98.pdf?_t=1664592218">consulta
                             calendario academico</a>
                             <!--DIRECCIONAMIENTO A AL PAGINA DE FORMATO DE GRADO-->
-                        <a class="button10" target="_blank" href="#">consultar formato de grado</a>
+                        <a class="button10" target="_blank" href="https://www.dropbox.com/sh/2937zx708zgncsw/AAA0pUsWY74w6GHJ4DksaTa1a/DOCUMENTOS%20DE%20GRADO?dl=0&subfolder_nav_tracking=1">consultar formato de grado</a>
                         <!--DIRECCIONAMIENTO A LA PAGINA INICIO-->
                         <a class="button10" href="../index.html">cerrar sesion</a>
                     </c:if>
