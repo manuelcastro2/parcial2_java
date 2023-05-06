@@ -36,7 +36,7 @@
                         <option value="">estudiante</option>
                         <!--FOREACH PARA LLAMAR LOS DATOS DEL ESTUDIANTE-->
                         <c:forEach var="itema" items="${result.rows}">
-                            <c:if test="${itema.cargo=='estudiante'&&itema.pre_proyecto==null}">
+                            <c:if test="${itema.cargo=='estudiante'}">
                                 <option value="${itema.cedula}">
                                     <c:out value="${itema.cedula}" /> -
                                     <c:out value="${itema.nombre}" />
